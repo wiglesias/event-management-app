@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  my-database-mariadb:
+    image: mariadb:10.5.21
+    container_name: my-database-mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: my_secret_password
+      MYSQL_DATABASE: my_database
+      MYSQL_USER: my_user
+      MYSQL_PASSWORD: my_password
+    ports:
+      - "33061:3306"
+    volumes:
+      - ./my-database-data:/var/lib/mysql
+    command: [ 'mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci' ]
+
+  my-adminer:
+    image: adminer
+    container_name: my-adminer
+    ports:
+      - "8080:8080"
+
+volumes:
+  my-database-mariadb-data:
