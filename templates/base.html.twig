@@ -2,8 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>{% block title %}Event Management{% endblock %}</title>
+
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -12,7 +13,49 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body id="{% block body_id %}{% endblock %}">
+        {% block header %}
+            <header>
+                <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+                    <div class="container">
+                        <a class="navbar-brand" href="{{ path('homepage') }}">Event Management App</a>
+                    </div>
+                </nav>
+            </header>
+        {% endblock %}
+            <div class="container body-container">
+                {% block body %}
+                    <div class="row">
+                        <div id="main" class="col-sm-9">
+                            {% block main %}{% endblock %}
+                        </div>
+                    </div>
+                {% endblock %}
+            </div>
+        {% block footer %}
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div id="footer-copyright" class="col-md-6">
+                            <p>&copy; {{ 'now'|date('Y') }} - Event Management App</p>
+                            <p>Licence MIT</p>
+                        </div>
+                        <div id="footer-resources" class="col-md-6">
+                            <p>
+                                <a href="#" title="Twitter">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                                <a href="#" title="SensioLabs Facebook">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                                <a href="#" title="Olinyó Blog">
+                                    <i class="fa fa-rss" aria-hidden="true"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        {% endblock %}
     </body>
 </html>
