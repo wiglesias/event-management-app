@@ -1,3 +1,116 @@
+@import "~bootstrap";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+@import "~@fortawesome/fontawesome-free/css/v4-shims.css";
+
+:root {
+    --font-default: 19px;
+    --font-heading: 2.5rem;
+    --font-title: 2rem;
+    --font-subtitle: 1.5rem;
+    --secondary-color: #ecf0f1;
+    --color-blue: #007bff;
+
+    --gray-7500: #e9ecec;
+    --btn-padding-y-lg: 21px;
+    --btn-padding-x-lg: 14px;
+    --btn-padding-y: 15px;
+    --btn-padding-x: 10px;
+    --btn-padding-y-sm: 9px;
+    --btn-padding-x-sm: 6px;
+}
+
+h1, .h1 {
+    font-size: var(--font-heading);
+}
+
+h3, .h3 {
+    font-size: var(--font-subtitle);
+}
+
+p, ul, ol {
+    font-size: var(--font-default);
+    margin-bottom: 1.5rem;
+}
+
+code {
+    background: var(--secondary-color);
+    color: var(--color-blue);
+    font-size: 90%;
+}
+
+.jumbotron {
+    padding: 1.5rem 1rem;
+}
+
 body {
-    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body:not(#homepage) {
+    padding-top: 110px;
+}
+
+header {
+    nav.navbar {}
+}
+
+body#homepage {
+    text-align: center;
+}
+body#homepage .page-header {
+    padding-bottom: 9.5px;
+    margin: 42px 0px 21px;
+}
+body#homepage .page-header h1 {
+    font-size: 39px;
+    margin-top: 21px;
+    margin-bottom: 10.5px;
+}
+body#homepage .jumbotron {
+    padding: 48px 60px !important;
+}
+body#homepage .jumbotron .btn {
+    font-size: 19px;
+    line-height: 1.33333;
+    padding: 18px 27px;
+    border-radius: 6px;
+}
+body#homepage .jumbotron p {
+    margin-bottom: 15px;
+    font-size: 23px;
+    font-weight: 200;
+}
+
+.body-container {
+    flex: 1;
+    min-height: 600px;
+}
+
+.body-container h1, h2 {
+    margin-top: 0;
+}
+
+footer {
+    background: var(--secondary-color);
+    margin-top: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em
+}
+
+footer p {
+    color: var(--gray-7500);
+    font-size: 13px;
+    margin-bottom: 0.25em
+}
+
+footer#footer-resources {
+    text-align: right
+}
+
+footer#footer-resources, i {
+    color: var(--gray-7500);
+    font-size: 28.5px;
+    margin-left: 0.5em
 }
